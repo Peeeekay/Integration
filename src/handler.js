@@ -1,6 +1,5 @@
 var r =  require('./request.js');
 const ACCESS_TOKEN=process.env.ACCESS_TOKEN;
-const rootURL = "https://api.pinterest.com/v1/boards"
 
 const isNumeric = function (n) {
   return !Number.isNaN(parseFloat(n)) && Number.isFinite(n);
@@ -34,7 +33,7 @@ const parseRequest = function(response, obj){
         //get boards
        url = `https://api.pinterest.com/v1/me/boards/?access_token=${TOKEN}&fields=id%2Cname%2Curl`
     }
-    return r.requestData(response, url, {parentId:parentId, query:query}, mediaType)
+    return r.requestData(response, url, {parentId:parentId, query:query, mediaType:mediaType})
 };
 
 module.exports = {

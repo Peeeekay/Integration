@@ -7,8 +7,6 @@ var fs = require('fs');
 var path    = require("path");
 
 var app = express();
-
-const SECRET = ""
 app.set('port', (process.env.PORT || 5000));
 
 // app.use(express.static(__dirname + '/build'));
@@ -20,6 +18,7 @@ app.set('view engine', 'ejs');
 // app.get('/',function(req,res){
 //   res.render('index.html');
 // });
+
 
 app.get('/', function(request, response) {
   response.render('pages/index');
@@ -38,8 +37,7 @@ app.get('/v1/media', function(request, response){
     const access = request.headers.authorization;
     const qs =  request.query;
     const obj = {qs:qs, access:access}
-    return handler.handleRequest(response, obj);
-    
+    return handler.handleRequest(response, obj); 
 });
 
 
