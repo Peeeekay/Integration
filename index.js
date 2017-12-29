@@ -33,7 +33,6 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/v1/media', function(request, response){
-    console.log('called')
     const access = request.headers.authorization;
     const qs =  request.query;
     const obj = {qs:qs, access:access}
